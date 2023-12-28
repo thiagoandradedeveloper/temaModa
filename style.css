@@ -1,0 +1,478 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style: none;
+    overflow-x: hidden;
+    user-select: none;
+    font-family: Arial, Helvetica, sans-serif;
+    /*border: #000 thin solid;*/
+    user-drag: none;
+    -ms-user-drag: none;
+    img{
+        pointer-events: none;
+    }
+}
+body{
+    position: relative;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    /*background-color: rgb(255, 200, 190);*/
+}
+.menu{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    z-index: 6;
+    text-align: right;
+    top: auto;
+    font-weight: bold;
+    text-shadow: 3px 3px 9px grey;
+    right: 40px;
+    a{
+        color: #000;
+    }
+    li{
+        position: relative;
+        display: inline-block;
+        padding: 10px;
+        cursor: pointer;
+    }
+    li:after{
+        position: absolute;
+        content: " ";
+        background: red;
+        width: 0%;
+        height: 2px;
+        bottom: 7px;
+        left: 50%;
+        transition: 200ms;
+    }
+    li:hover:after{
+        position: absolute;
+        content: " ";
+        background: rgb(255,0,127);
+        width: 100%;
+        height: 2px;
+        bottom: 7px;
+        left: 0%;
+    }
+}
+
+.logo{
+    --sizeLogo: 150px;
+    position: absolute;
+    left: 60px;
+    top: 10px;
+    width: var(--sizeLogo);
+    cursor: pointer;
+    z-index: 3;
+    z-index: 7;
+}
+.logo img{
+    width: var(--sizeLogo);
+}
+.fundo{
+    backdrop-filter: blur(10px);
+    position: relative;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: url("img/fundo.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: initial;
+    z-index: 1;
+}
+.btnPlay{
+    position: absolute;
+    bottom: 25px;
+    right: 23px;
+    z-index: 5;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
+.fundoBtnPlay{
+    z-index: 4;
+    background: #fff;
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    animation: animateBtnPlay 2s infinite ease-out;
+}
+@keyframes animateBtnPlay {
+    0%{
+        width: 0px;
+        height: 0px;
+        bottom: 60px;
+        right: 62px;
+        opacity: 1;
+    }
+    100%{
+        width: 130px;
+        height: 130px;
+        bottom: 0px;
+        right:  0px;
+        opacity: 0;
+    }
+}
+.redes{
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 6;
+    width: 32px;
+    height: 166px;
+    top: calc(50% - 83px);
+    left: 30px;
+}
+svg:hover{
+    cursor: pointer;
+}
+#menuIcon{
+    position: absolute;
+    z-index: 6;
+    top: 40px;
+    right: 50px;
+    width: 35px;
+    height: 35px;
+    display: none;
+    cursor: pointer;
+}
+.iconsMenu{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    top: -3px;
+}
+svg:nth-last-of-type(2){
+    width: 27px;
+    height: 27px;
+    top: -5px;
+}
+.categorias{
+    
+    position: relative;
+    z-index: 5;
+    top: auto;
+    margin-top: 100px;
+
+    .contentCategorias{
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+
+        .categoria{
+            cursor: pointer;
+            img{
+                width: 130px;
+                height: 130px;
+                border-radius: 50%;
+            }
+            .nameCategory{
+                margin-top: 0px;
+                text-align: center;
+                font-weight: 700;
+                font-size: 20px;
+            }
+        }
+    }
+}
+.containerGalery{
+    position: relative;
+    z-index: 6;
+    top: auto;
+    width: 100%;
+    margin-top: 100px;
+
+    .galery{
+        width: 100%;
+        column-count:3;
+        column-gap: 0;
+
+        img{
+            width: 100%;
+            margin-top: -4px;
+            top: 0px;
+        }
+    }
+}
+.containerShop{
+    position: relative;
+    z-index: 6;
+    top: auto;
+    width: 100%;
+    margin-top: 100px;
+    .moreProducts{
+        position: relative;
+        margin-top: 50px;
+        padding: 10px;
+        width: 250px;
+        border: none;
+        background: rgb(255,0,127);
+        box-shadow: 3px 3px 9px gray;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        left: calc(50% - 125px);
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        &:hover{
+            background: rgba(255,0,127,0.8);
+        }
+    }
+}
+.titleSection{
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.titleSection::after{
+    content: " ";
+    position: relative;
+    background: #000;
+    width: 44%;
+    height: 1px;
+    left: 28%;
+    display: block;
+}
+.conrainerCard{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    flex-wrap: wrap;
+
+    .card{
+        position: relative;
+        background: rgb(231, 231, 231);
+        width: 280px;
+        text-align: center;
+        border-radius: 10px;
+        height: 460px;
+        overflow: hidden;
+        box-shadow: 3px 3px 9px gray;
+        margin-bottom: 10px;
+    
+        .heart{
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            fill: rgb(255,0,127);
+            height: 20px;
+            width: 20px;
+        }
+        img{
+            width: 200px;
+            margin-top: 30px;
+        }
+        .titleCard{
+            position: relative;
+            font-size: 17px;
+            font-weight: bold;
+            height: 30px;
+            margin: 10px;
+            --margin: 20px;
+            margin-left: var(--margin);
+            margin-right: var(--margin);
+        }
+        .subPreco, .preco{
+            position: relative;
+            display: inline-block;
+            bottom: 0;
+            margin: 0;
+        }
+        .preco{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .subPreco{
+            font-size: 15px;
+            text-decoration: line-through;
+            color: red;
+            top: -3px;
+        }
+        .btnProduct{
+            position: relative;
+            border: rgb(255,0,127) 2px solid;
+            background: rgb(255,255,255);
+            color: rgb(255,0,127);
+            margin: 30px;
+            margin-top: 0px;
+            text-align: left;
+            padding: 14px;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+            overflow: hidden;
+
+            .btnProductInternal{
+                position: absolute;
+                display: inline-block;
+                right: 5px;
+                padding: 5px;
+                width: 37px;
+                height: 38px;
+                top: 4px;
+                border-radius: 5px;
+                background-color: rgb(255,0,127);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                color: #fff;
+                transition: 100ms;
+            }
+            &:hover .btnProductInternal{
+                right: 0px;
+                height: 47px;
+                width: 47px;
+                border-radius: 0px 2px 2px 0px;
+                top: 0;
+            }
+        }
+        .containeStar{
+            position: relative;
+            bottom: 15px;
+            margin-top: 30px;
+            text-align: center;
+            
+            svg{
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                /*fill: rgb(255,0,127);*/
+                fill: orangered;
+            }
+        }
+    }
+}
+.containerEvents{
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+#about{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    flex-wrap: wrap;
+    
+    .cardAboutUs{
+        /*border: thin solid black;*/
+        padding: 40px;
+        width: 500px;
+        height: auto;
+        text-align: center;
+        color: gray;
+        img{
+            width: 300px;
+        }
+        .titleCardAbout{
+            font-size: 25px;
+            color: #222;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        @media (max-width: 700px) {
+            width: 280px;
+        }
+    }
+    .cardAboutUs:nth-child(2){
+        text-align: center;
+    }
+    @media (max-width: 1000px) {
+        flex-direction: column-reverse;
+        align-items: center;
+        .cardAboutUs{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 00px;
+        }
+    }
+}
+footer{
+    background: #222;
+    text-align: center;
+    img{
+        position: relative;
+        width: 1170px;
+        height: auto;
+    }
+}
+.containerCantact{
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    *{
+        margin-bottom: 20px;
+        user-select: text;
+    }
+    .cardContact{
+        max-width: 350px;
+        min-width: 350px;
+        text-align: center;
+        svg{
+            width: 50px;
+            height: 50px;
+        }
+        .titleContact{
+            font-weight: bold;
+            font-size: 30px;
+        }
+        .textContact{
+            color: #222;
+            font-size: 16px;
+        }
+        .contact{
+            color: #222;
+            font-size: 16px;
+        }
+        @media (max-width: 400px) {
+            max-width: 90%;
+            min-width: 90%;
+        }
+    }
+}
+@media (max-width: 880px) {
+    .menu{ display: none; }
+    #menuIcon{ display: block; }
+    .fundo{
+        background: url("img/fundo2.png");
+        background-repeat: no-repeat;
+        background-size: 700px 500px;
+        background-position: calc(50%) calc(50%);
+    }
+}
+@media (max-width: 400px) {
+    #menuIcon{ right: 30px; }
+    .fundo{
+        background: url("img/fundo2.png");
+        background-repeat: no-repeat;
+        background-size: 400px 300px;
+        background-position: calc(50%) calc(30%);
+    }
+    .logo{
+        left: 30px;
+    }
+    .redes{
+        top: 30%;
+    }
+}
